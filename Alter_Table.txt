@@ -1,0 +1,16 @@
+mysql> alter table Dash add email varchar(255);
+Query OK, 0 rows affected (0.51 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc ;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| ID         | int          | YES  |     | NULL    |       |
+| Firstname  | varchar(255) | YES  |     | NULL    |       |
+| Secondname | varchar(255) | YES  |     | NULL    |       |
+| Lastname   | varchar(255) | YES  |     | NULL    |       |
+| Address    | varchar(255) | YES  |     | NULL    |       |
+| email      | varchar(255) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+6 rows in set (0.10 sec)

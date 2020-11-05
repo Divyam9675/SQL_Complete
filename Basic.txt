@@ -1,0 +1,72 @@
+Create database Ramesh;
+    -> Use Ramesh;
+    -> CREATE PROCEDURE citycount (IN country CHAR(3), OUT cities INT)
+    ->        BEGIN
+    ->          SELECT COUNT(*) INTO cities FROM world.city
+    ->          WHERE CountryCode = country;
+    ->        END//
+Query OK, 1 row affected (0.69 sec)
+
+Query OK, 0 rows affected (0.69 sec)
+
+Query OK, 0 rows affected (1.98 sec)
+
+mysql> delimiter ;
+mysql> CALL citycount('JPN', @cities);
+Query OK, 1 row affected (0.66 sec)
+
+mysql> SELECT @cities;
++---------+
+| @cities |
++---------+
+|     248 |
++---------+
+1 row in set (0.03 sec)
+
+mysql> CALL citycount('FRA', @cities);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT @cities;
++---------+
+| @cities |
++---------+
+|      40 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> CALL citycount('IND', @cities);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT @cities;
++---------+
+| @cities |
++---------+
+|     341 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> CALL citycount('PAK', @cities);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT @cities;
++---------+
+| @cities |
++---------+
+|      59 |
++---------+
+1 row in set (0.00 sec)
+
+Use Ramesh
+Database changed
+mysql> CREATE FUNCTION hello (s CHAR(20))
+    -> RETURNS CHAR(50) DETERMINISTIC
+    ->        RETURN CONCAT('Hello, ',s,'!');
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> SELECT hello('world');
++----------------+
+| hello('world') |
++----------------+
+| Hello, world!  |
++----------------+
+1 row in set (0.07 sec)
